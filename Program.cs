@@ -8,10 +8,10 @@ namespace Day16AssignmentPart1
 {
     internal class Program
     {
-        internal delegate int ArithmeticOperation(int n1, int n2);
+        public delegate int ArithmeticOperation(int n1, int n2);
         static void Main(string[] args)
         {
-            Operations Opertations= new Operations();
+            Operations calc= new Operations();
             Console.WriteLine("Choose the Operation");
             Console.WriteLine("Enter first number");
             int number1=int.Parse(Console.ReadLine());
@@ -23,9 +23,35 @@ namespace Day16AssignmentPart1
             {
                 case 1:
                     {
-                        ArithmeticOperation del = new ArithmeticException(Opertations.Add( number1,number2));
+                        ArithmeticOperation del = new ArithmeticException(calc.Add(number1,number2));
+                        Console.WriteLine("After Addition : \t"+del);
+                        break;
+                    }
+                case 2:
+                    {
+                        ArithmeticOperation del = new ArithmeticException(calc.Sub);
+                        Console.WriteLine("After substraction: \t"+del);
+                        break;
+                    }
+                case 3:
+                    {
+                        ArithmeticOperation del = new ArithmeticException(calc.Multi(number1, number2));
+                        Console.WriteLine("After Multiplication:\t"+del);
+                        break;
+                    }
+                case 4:
+                    {
+                        ArithmeticOperation del = new ArithmeticException(calc.Div(number1, number2));
+                        Console.WriteLine("After division: \t" + del);
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Invalid choice!!!");
+                        break;
                     }
             }
+            Console.ReadKey();
             
         }
     }
